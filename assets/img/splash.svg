@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <defs>
+    <filter id="p" x="-25%" y="-25%" width="150%" height="150%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="3" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="80" xChannelSelector="R" yChannelSelector="G"/>
+      <feGaussianBlur stdDeviation="1.4"/>
+    </filter>
+    <filter id="d" x="-50%" y="-50%" width="200%" height="200%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="2" seed="3" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+  <g filter="url(#p)" style="mix-blend-mode:multiply;isolation:isolate">
+    <circle cx="300" cy="240" r="140" fill="#ffc21a" opacity=".9"/>
+    <circle cx="200" cy="350" r="110" fill="#f26b1d" opacity=".8"/>
+    <circle cx="390" cy="380" r="100" fill="#3cae3f" opacity=".75"/>
+    <circle cx="180" cy="190" r="70" fill="#1f8fd6" opacity=".7"/>
+  </g>
+  <g filter="url(#d)">
+    <circle cx="80" cy="300" r="12" fill="#f26b1d"/><circle cx="55" cy="345" r="6" fill="#ffc21a"/>
+    <circle cx="520" cy="200" r="13" fill="#3cae3f"/><circle cx="548" cy="240" r="6" fill="#1f8fd6"/>
+    <circle cx="300" cy="70" r="9" fill="#f26b1d"/><circle cx="470" cy="520" r="11" fill="#1f8fd6"/>
+    <circle cx="130" cy="510" r="8" fill="#3cae3f"/>
+  </g>
+</svg>

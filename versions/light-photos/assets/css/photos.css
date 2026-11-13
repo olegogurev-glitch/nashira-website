@@ -1,0 +1,108 @@
+/* ==========================================================
+   Nashira — LIGHT theme + photos
+   Loaded after style.css. Stock images for the MVP — swap for
+   the club's own later. Keeps the light look: sharp corners,
+   thin gold frames, navy ink.
+   ========================================================== */
+img { max-width: 100%; }
+
+/* ---------- Hero photo card (replaces the SVG court) ---------- */
+.hero-art { aspect-ratio: 4 / 5; }
+.court-wrap.photo { background: var(--sand); }
+.court-wrap.photo img {
+  width: 100%; height: 100%; display: block;
+  object-fit: cover; object-position: 60% 50%;
+}
+
+/* ---------- About: text left, photo collage right ---------- */
+.about-grid {
+  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-areas: "q c" "b c";
+  grid-template-rows: auto 1fr;
+  row-gap: 28px;
+}
+.about-grid > div:first-child { grid-area: q; }
+.about-grid > .about-body { grid-area: b; }
+.about-photos { grid-area: c; position: relative; margin: 0 18px 44px 30px; }
+.about-photos::before {
+  content: ""; position: absolute; inset: 0; z-index: 0;
+  border: 1px solid rgba(179, 146, 90, 0.7);
+  transform: translate(18px, -18px);
+}
+.about-photos .ph-main {
+  position: relative; z-index: 1; display: block;
+  width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 70% 50%;
+  box-shadow: 0 30px 60px rgba(110, 55, 25, 0.16);
+}
+.about-photos .ph-inset {
+  position: absolute; z-index: 2; left: -34px; bottom: -44px;
+  width: 44%; aspect-ratio: 1; object-fit: cover; object-position: 35% 40%;
+  border: 6px solid var(--paper);
+  box-shadow: 0 20px 40px rgba(20, 43, 79, 0.18);
+}
+
+/* ---------- Gallery ---------- */
+.gallery { background: var(--cream); }
+.gallery-head {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  gap: 24px; max-width: none; flex-wrap: wrap;
+}
+.gallery-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: clamp(180px, 20vw, 280px);
+  gap: clamp(12px, 1.4vw, 18px);
+}
+.g-tile { margin: 0; overflow: hidden; position: relative; background: var(--sand); }
+.g-tile img {
+  width: 100%; height: 100%; display: block; object-fit: cover;
+  transition: transform 0.9s var(--ease);
+}
+.g-tile:hover img { transform: scale(1.04); }
+.g-wide { grid-column: span 2; }
+.g-insta {
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+  gap: 8px; padding: 28px;
+  background: var(--navy); color: var(--white);
+  transition: background-color 0.35s var(--ease);
+}
+.g-insta::after {
+  content: ""; position: absolute; inset: 12px;
+  border: 1px solid rgba(201, 171, 116, 0.45);
+  pointer-events: none; transition: inset 0.35s var(--ease);
+}
+.g-insta:hover { background-color: #1b3863; }
+.g-insta:hover::after { inset: 18px; }
+.g-insta svg { width: 32px; height: 32px; margin-bottom: 6px; color: var(--gold-soft); }
+.g-insta b {
+  font-family: var(--serif); font-weight: 500; font-style: italic;
+  font-size: clamp(24px, 2.2vw, 32px); line-height: 1.1; max-width: 12ch;
+}
+.g-insta span { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255, 255, 255, 0.7); }
+
+/* ---------- Booking page header photo ---------- */
+.page-hero.has-photo { position: relative; overflow: hidden; }
+.page-hero-photo {
+  position: absolute; inset: 0; z-index: 0;
+  background: url("../img/photos/booking-ball.jpg") 30% 55% / cover no-repeat;
+  transform: scaleX(-1);
+}
+.page-hero.has-photo::before {
+  content: ""; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(90deg, rgba(253, 251, 247, 0.98) 0%, rgba(253, 251, 247, 0.9) 42%, rgba(253, 251, 247, 0.2) 75%, rgba(253, 251, 247, 0) 100%);
+}
+.page-hero.has-photo .hero-pattern { display: none; }
+.page-hero.has-photo .wrap { position: relative; z-index: 2; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+  .about-grid { grid-template-columns: 1fr; grid-template-areas: "q" "b" "c"; grid-template-rows: none; }
+  .about-photos { margin: 20px 18px 44px 24px; max-width: 520px; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 620px) {
+  .gallery-grid { grid-auto-rows: 160px; gap: 10px; }
+  .g-insta { padding: 20px; }
+  .about-photos .ph-inset { left: -16px; bottom: -30px; }
+  .page-hero.has-photo::before { background: linear-gradient(180deg, rgba(253, 251, 247, 0.94), rgba(253, 251, 247, 0.86)); }
+}
+.section { overflow-x: clip; }

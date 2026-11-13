@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="meta.home">Nashira Spor Kulübü — Tennis Academy in Antalya</title>
+  <meta name="description" content="Nashira Tennis Academy: six red clay courts in Antalya, near Konyaaltı beach. Private and group lessons, junior academy, holiday camps and online court booking.">
+  <!-- Link previews (WhatsApp, Instagram, Facebook, Telegram). When the site is live,
+       change og:image to the full address, e.g. https://nashira.example/assets/img/og-image.png -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nashira Spor Kulübü">
+  <meta property="og:title" content="Nashira Spor Kulübü — Tennis Academy in Antalya">
+  <meta property="og:description" content="Six red clay courts, private and group lessons, junior academy and online court booking. Rated 4.9 on Google.">
+  <meta property="og:image" content="assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:locale:alternate" content="tr_TR">
+  <meta property="og:locale:alternate" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#fdfbf7">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230e2442'/%3E%3Cpolygon fill='none' stroke='%23b3925a' stroke-width='6' points='50.0,11.0 61.4,22.4 77.6,22.4 77.6,38.6 89.0,50.0 77.6,61.4 77.6,77.6 61.4,77.6 50.0,89.0 38.6,77.6 22.4,77.6 22.4,61.4 11.0,50.0 22.4,38.6 22.4,22.4 38.6,22.4'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<!-- Shared emblem (recreated from the club logo) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="emblem" viewBox="0 0 100 100">
+    <polygon fill="none" stroke="#b3925a" stroke-width="2.8" stroke-linejoin="round" points="50.0,4.0 63.5,17.5 82.5,17.5 82.5,36.5 96.0,50.0 82.5,63.5 82.5,82.5 63.5,82.5 50.0,96.0 36.5,82.5 17.5,82.5 17.5,63.5 4.0,50.0 17.5,36.5 17.5,17.5 36.5,17.5"/>
+    <polygon fill="none" stroke="#b3925a" stroke-width="1.3" stroke-linejoin="round" points="50.0,11.0 61.4,22.4 77.6,22.4 77.6,38.6 89.0,50.0 77.6,61.4 77.6,77.6 61.4,77.6 50.0,89.0 38.6,77.6 22.4,77.6 22.4,61.4 11.0,50.0 22.4,38.6 22.4,22.4 38.6,22.4"/>
+    <g fill="#b3925a">
+      <path id="petal" d="M50 46.5 C43.5 41.5 43.5 32 50 25.5 C56.5 32 56.5 41.5 50 46.5Z"/>
+      <use href="#petal" transform="rotate(90 50 50)"/>
+      <use href="#petal" transform="rotate(180 50 50)"/>
+      <use href="#petal" transform="rotate(270 50 50)"/>
+      <circle cx="37.5" cy="37.5" r="2.6"/><circle cx="62.5" cy="37.5" r="2.6"/>
+      <circle cx="37.5" cy="62.5" r="2.6"/><circle cx="62.5" cy="62.5" r="2.6"/>
+    </g>
+  </symbol>
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+</svg>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="header">
+  <div class="wrap header-inner">
+    <a href="#top" class="brand" aria-label="Nashira Spor Kulübü — home">
+      <svg class="brand-mark"><use href="#emblem"/></svg>
+      <span class="brand-text">
+        <span class="brand-name">NASHIRA</span>
+        <span class="brand-sub">Spor Kulübü · Antalya</span>
+      </span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#academy" data-i18n="nav.academy">Academy</a>
+      <a href="#programs" data-i18n="nav.programs">Programmes</a>
+      <a href="#facilities" data-i18n="nav.facilities">Facilities</a>
+      <a href="#team" data-i18n="nav.team">Team</a>
+      <a href="#pricing" data-i18n="nav.prices">Prices</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-setlang="en" lang="en" aria-label="English">EN</button>
+        <button type="button" data-setlang="tr" lang="tr" aria-label="Türkçe">TR</button>
+        <button type="button" data-setlang="ru" lang="ru" aria-label="Русский">RU</button>
+      </div>
+      <a href="booking.html" class="btn btn-gold" data-i18n="nav.book">Book a court</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero-pattern" aria-hidden="true"></div>
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <div class="eyebrow reveal" data-i18n="hero.eyebrow">Tennis Academy · Antalya</div>
+        <h1 class="reveal d1" data-i18n="hero.title">Tennis, <em>refined</em> on red clay.</h1>
+        <p class="lead reveal d2" data-i18n="hero.lead">Six red clay courts between the Taurus mountains and the sea. Coaching and court hire for every level — from a first rally to tournament play.</p>
+        <div class="hero-actions reveal d3">
+          <a href="booking.html" class="btn btn-gold"><span data-i18n="cta.book">Book a court</span> <svg><use href="#arrow"/></svg></a>
+          <a href="#contact" class="btn btn-ghost" data-enquire="trial" data-i18n="hero.trial">Free trial lesson</a>
+        </div>
+        <a class="hero-rating reveal d3" href="#reviews"><span class="stars" aria-hidden="true">★★★★★</span><b>4.9</b><span data-i18n="rating.google">on Google · 24 reviews</span></a>
+      </div>
+
+      <div class="hero-art reveal d2" aria-hidden="true">
+        <div class="frame"></div>
+        <div class="court-wrap">
+          <svg viewBox="0 0 360 560" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="clayGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#c76a40"/>
+                <stop offset="1" stop-color="#a94f2d"/>
+              </linearGradient>
+              <filter id="clayTex" x="0" y="0" width="100%" height="100%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="7"/>
+                <feColorMatrix values="0 0 0 0 0.35  0 0 0 0 0.12  0 0 0 0 0.05  0 0 0 0.5 0"/>
+                <feComposite in2="SourceGraphic" operator="in"/>
+              </filter>
+              <radialGradient id="vign" cx="0.5" cy="0.45" r="0.75">
+                <stop offset="0.55" stop-color="#000" stop-opacity="0"/>
+                <stop offset="1" stop-color="#2a0f04" stop-opacity="0.45"/>
+              </radialGradient>
+              <linearGradient id="sun" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#fff3d6" stop-opacity="0.28"/>
+                <stop offset="0.5" stop-color="#fff3d6" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <rect width="360" height="560" fill="url(#clayGrad)"/>
+            <rect width="360" height="560" fill="#000" filter="url(#clayTex)"/>
+            <g stroke="#e9a27c" stroke-opacity="0.22" stroke-linecap="round" fill="none">
+              <path d="M120 505 q 22 -6 44 -2" stroke-width="7"/>
+              <path d="M230 470 q 16 8 34 6" stroke-width="6"/>
+              <path d="M96 70 q 18 4 40 -2" stroke-width="6"/>
+              <path d="M205 118 q 20 -8 38 -4" stroke-width="5"/>
+              <path d="M150 360 q 10 10 28 10" stroke-width="5"/>
+            </g>
+            <g stroke="#fbf6ee" stroke-width="2.4" fill="none" stroke-opacity="0.93">
+              <rect x="70.3" y="42.3" width="219.4" height="475.4"/>
+              <line x1="97.7" y1="42.3" x2="97.7" y2="517.7"/>
+              <line x1="262.3" y1="42.3" x2="262.3" y2="517.7"/>
+              <line x1="97.7" y1="152" x2="262.3" y2="152"/>
+              <line x1="97.7" y1="408" x2="262.3" y2="408"/>
+              <line x1="180" y1="152" x2="180" y2="408"/>
+              <line x1="180" y1="42.3" x2="180" y2="49"/>
+              <line x1="180" y1="511" x2="180" y2="517.7"/>
+            </g>
+            <line x1="52" y1="284" x2="308" y2="284" stroke="#3a1606" stroke-opacity="0.3" stroke-width="5"/>
+            <line x1="52" y1="280" x2="308" y2="280" stroke="#1b2333" stroke-width="2"/>
+            <line x1="52" y1="279" x2="308" y2="279" stroke="#fbf6ee" stroke-width="1.6"/>
+            <circle cx="52" cy="280" r="3.6" fill="#1b2333"/><circle cx="308" cy="280" r="3.6" fill="#1b2333"/>
+            <ellipse class="ball-shadow" cx="243" cy="456" rx="7" ry="3.2" fill="#3a1606" opacity="0.35"/>
+            <g class="ball">
+              <circle cx="239" cy="450" r="5.4" fill="#dfe75a"/>
+              <path d="M234.6 447.5 q 4.4 2.4 8.8 0" stroke="#fff" stroke-opacity="0.7" stroke-width="0.9" fill="none"/>
+            </g>
+            <rect width="360" height="560" fill="url(#sun)"/>
+            <rect width="360" height="560" fill="url(#vign)"/>
+          </svg>
+        </div>
+        <div class="hero-badge">
+          <strong>6</strong>
+          <span data-i18n="hero.badge">Red clay<br>courts</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-foot">
+      <div class="wrap">
+        <small data-i18n="hero.open">Open daily · 07:00 – 00:00</small>
+        <a href="#academy" class="scroll-cue"><small data-i18n="hero.discover">Discover</small><i></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="section" id="academy">
+    <div class="wrap">
+      <div class="about-grid">
+        <div>
+          <div class="eyebrow reveal" data-i18n="about.eyebrow">The Academy</div>
+          <p class="about-quote reveal d1" data-i18n="about.quote">A private-club atmosphere with an academy's <em>discipline</em> — tennis the way it is played at Europe's great clay clubs.</p>
+        </div>
+        <div class="about-body reveal d2">
+          <p data-i18n="about.p1">Nashira is a tennis academy and club close to Konyaaltı beach and the city centre. Our six red clay courts are the slowest, most forgiving surface in the game — the place where patience, footwork and shot-making are learned properly.</p>
+          <p data-i18n="about.p2">Whether you are picking up a racket for the first time, raising a junior with ambitions, or looking for a regular game in Antalya, our coaches build the programme around you.</p>
+          <div class="signature">
+            <svg><use href="#emblem"/></svg>
+            <div>Nashira Spor Kulübü<span>Antalya</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat reveal"><strong><span data-count="6">6</span></strong><span data-i18n="stat.courts">Clay courts</span></div>
+        <div class="stat reveal d1"><strong><span data-count="17">17</span><sup data-i18n="stat.h">h</sup></strong><span data-i18n="stat.hours">Open every day</span></div>
+        <div class="stat reveal d2"><strong><span data-count="3">3</span></strong><span data-i18n="stat.langs">Coaching languages</span></div>
+        <div class="stat reveal d3"><strong><span data-count="4">4</span><sup>+</sup></strong><span data-i18n="stat.age">Years — juniors from</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROGRAMMES ================= -->
+  <section class="section programs" id="programs">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow reveal" data-i18n="programs.eyebrow">Programmes</div>
+        <h2 class="reveal d1" data-i18n="programs.title">Coaching for every <em class="serif-i">stage</em> of the game.</h2>
+        <p class="lead reveal d2" data-i18n="programs.lead">Individual and group lessons for adults and juniors, structured by level and taught by certified coaches.</p>
+      </div>
+
+      <div class="program-grid">
+        <article class="program reveal">
+          <div class="program-num">I.</div>
+          <h3 data-i18n="p1.title">Private Lessons</h3>
+          <p data-i18n="p1.text">One coach, one player, total focus. Technique, tactics and match play tailored precisely to your game and your goals.</p>
+          <div class="program-meta"><span data-i18n="p1.m1">60 / 90 min</span><b data-i18n="p1.m2">All levels</b></div>
+        </article>
+        <article class="program reveal d1">
+          <div class="program-num">II.</div>
+          <h3 data-i18n="p2.title">Semi-Private</h3>
+          <p data-i18n="p2.text">Train with a partner of similar level — twice the rallies, shared cost, and a built-in rival to push you further.</p>
+          <div class="program-meta"><span data-i18n="p2.m1">2 players</span><b data-i18n="p2.m2">60 min</b></div>
+        </article>
+        <article class="program reveal d2">
+          <div class="program-num">III.</div>
+          <h3 data-i18n="p3.title">Adult Group Clinics</h3>
+          <p data-i18n="p3.text">Small groups of four to six, matched by level. Drills, point play and good company — beginner to advanced.</p>
+          <div class="program-meta"><span data-i18n="p3.m1">4–6 players</span><b data-i18n="p3.m2">Weekly</b></div>
+        </article>
+        <article class="program reveal">
+          <div class="program-num">IV.</div>
+          <h3 data-i18n="p4.title">Junior Academy</h3>
+          <p data-i18n="p4.text">Ages 4 to 16. Red, orange and green ball stages give children a clear pathway from first swing to first tournament.</p>
+          <div class="program-meta"><span data-i18n="p4.m1">Ages 4–16</span><b data-i18n="p4.m2">Term-based</b></div>
+        </article>
+        <article class="program reveal d1">
+          <div class="program-num">V.</div>
+          <h3 data-i18n="p5.title">Performance Squad</h3>
+          <p data-i18n="p5.text">High-intensity training for competitive players: on-court fitness, match analysis and tournament planning.</p>
+          <div class="program-meta"><span data-i18n="p5.m1">By assessment</span><b data-i18n="p5.m2">Daily</b></div>
+        </article>
+        <article class="program reveal d2">
+          <div class="program-num">VI.</div>
+          <h3 data-i18n="p6.title">Tennis Holidays</h3>
+          <p data-i18n="p6.text">Visiting Antalya? Join an intensive three- or five-day camp and pair your stay by the sea with real progress on court.</p>
+          <div class="program-meta"><span data-i18n="p6.m1">3 / 5 days</span><b data-i18n="p6.m2">Year-round</b></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STATEMENT ================= -->
+  <section class="statement">
+    <div class="wrap">
+      <svg class="statement-mark reveal" aria-hidden="true"><use href="#emblem"/></svg>
+      <p class="statement-line reveal d1" data-i18n="statement">On clay, every <em>point</em> is earned.</p>
+      <p class="statement-sub reveal d2" data-i18n="statement.sub">Led by a national team coach</p>
+    </div>
+  </section>
+
+  <!-- ================= FACILITIES ================= -->
+  <section class="section" id="facilities">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow reveal" data-i18n="fac.eyebrow">Our Facilities</div>
+        <h2 class="reveal d1" data-i18n="fac.title">Six courts. One quiet <em class="serif-i">corner</em> of Antalya.</h2>
+      </div>
+
+      <div class="facilities-grid">
+        <figure class="court-map reveal" style="margin:0">
+          <svg id="courtMap" viewBox="0 0 600 590" role="img" aria-label="Plan of the six clay courts and clubhouse"></svg>
+          <figcaption><span data-i18n="fac.plan">Club plan</span><b data-i18n="fac.planInfo">Courts 1 – 6 · Red clay · Floodlit</b></figcaption>
+        </figure>
+
+        <ul class="feature-list">
+          <li class="reveal">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.5" /> <path d="M12 4v16" /> <path d="M3 8h18" /> <path d="M3 16h18" /> <path d="M7.5 8v8" /> <path d="M16.5 8v8" /></svg></span>
+            <div><h4 data-i18n="f1.t">Six red clay courts</h4><p data-i18n="f1.p">Brushed, watered and lined every day — kind to the joints and true to the bounce.</p></div>
+          </li>
+          <li class="reveal d1">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9" /> <path d="M20 3v4" /> <path d="M22 5h-4" /></svg></span>
+            <div><h4 data-i18n="f2.t">Floodlit evenings</h4><p data-i18n="f2.p">LED lighting on every court, so you can play after the heat of the day — until midnight.</p></div>
+          </li>
+          <li class="reveal d2">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2v2" /> <path d="M14 2v2" /> <path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1" /> <path d="M6 2v2" /></svg></span>
+            <div><h4 data-i18n="f3.t">Clubhouse &amp; terrace</h4><p data-i18n="f3.p">Coffee, fresh juices and shaded seating overlooking the courts.</p></div>
+          </li>
+          <li class="reveal">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 4 2.5 2.5" /> <path d="M13.5 6.5a4.95 4.95 0 0 0-7 7" /> <path d="M15 5 5 15" /> <path d="M14 17v.01" /> <path d="M10 16v.01" /> <path d="M13 13v.01" /> <path d="M16 10v.01" /> <path d="M11 20v.01" /> <path d="M17 14v.01" /> <path d="M20 11v.01" /></svg></span>
+            <div><h4 data-i18n="f4.t">Changing rooms</h4><p data-i18n="f4.p">Showers, lockers and fresh towels for members and guests.</p></div>
+          </li>
+          <li class="reveal d1">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" /> <path d="M3 6h18" /> <path d="M16 10a4 4 0 0 1-8 0" /></svg></span>
+            <div><h4 data-i18n="f5.t">Pro shop &amp; stringing</h4><p data-i18n="f5.p">Demo rackets to try or rent, balls and grips, same-day restringing.</p></div>
+          </li>
+          <li class="reveal d2">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" /> <path d="M9 17V7h4a3 3 0 0 1 0 6H9" /></svg></span>
+            <div><h4 data-i18n="f6.t">Parking on site</h4><p data-i18n="f6.p">Arrive, park and walk straight onto court.</p></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BOOKING TEASER ================= -->
+  <section class="section book-band" id="book">
+    <div class="wrap book-band-grid">
+      <div>
+        <div class="eyebrow reveal" data-i18n="book.eyebrow">Court Booking</div>
+        <h2 class="reveal d1" data-i18n="book.title">Reserve your court in under a minute.</h2>
+        <p class="lead reveal d2" data-i18n="book.lead">See live availability across all six courts, pick your time and confirm instantly — no phone calls, no waiting.</p>
+        <a href="booking.html" class="btn btn-navy reveal d3"><span data-i18n="book.cta">Open the booking calendar</span> <svg><use href="#arrow"/></svg></a>
+      </div>
+      <div class="today-card reveal d2">
+        <header>
+          <h3 id="todayTitle"></h3>
+          <span id="todayLabel"></span>
+        </header>
+        <div id="todayRows"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TEAM ================= -->
+  <section class="section" id="team">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow reveal" data-i18n="team.eyebrow">Our Team</div>
+        <h2 class="reveal d1" data-i18n="team.title">Coaches who have lived the <em class="serif-i">game</em>.</h2>
+        <p class="lead reveal d2" data-i18n="team.lead">Led by a national team coach — and known by parents and players for patience, discipline and real progress.</p>
+      </div>
+
+      <div class="team-grid">
+        <article class="coach reveal">
+          <div class="coach-photo"><span class="mono">O</span><span class="ph-note" data-i18n="team.photo">Photo</span></div>
+          <div class="role" data-i18n="c1.role">Juniors &amp; Performance</div>
+          <h3 data-i18n="c1.name">Orhan</h3>
+          <p data-i18n="c1.bio">Leads junior and performance training: intense, structured sessions and weekend match play.</p>
+        </article>
+        <article class="coach reveal d1">
+          <div class="coach-photo"><span class="mono">D</span><span class="ph-note" data-i18n="team.photo">Photo</span></div>
+          <div class="role" data-i18n="c2.role">Junior Programme</div>
+          <h3 data-i18n="c2.name">Dilek</h3>
+          <p data-i18n="c2.bio">Works with the academy's young players, making disciplined training something children genuinely enjoy.</p>
+        </article>
+        <article class="coach reveal d2">
+          <div class="coach-photo"><span class="mono">M</span><span class="ph-note" data-i18n="team.photo">Photo</span></div>
+          <div class="role" data-i18n="c3.role">Junior Coach</div>
+          <h3 data-i18n="c3.name">Musa</h3>
+          <p data-i18n="c3.bio">Patient and encouraging, taking juniors from their first lessons to their first competitions.</p>
+        </article>
+        <article class="coach reveal d3">
+          <div class="coach-photo"><span class="mono">A</span><span class="ph-note" data-i18n="team.photo">Photo</span></div>
+          <div class="role" data-i18n="c4.role">Adult Lessons</div>
+          <h3 data-i18n="c4.name">Arda</h3>
+          <p data-i18n="c4.bio">Coaches adults and beginners in relaxed, enjoyable lessons with fast, visible progress.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= REVIEWS ================= -->
+  <section class="section reviews" id="reviews">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow reveal" data-i18n="rev.eyebrow">Reviews</div>
+        <h2 class="reveal d1" data-i18n="rev.title">What players and <em class="serif-i">parents</em> say.</h2>
+      </div>
+      <div class="review-grid" id="reviewGrid">
+        <div class="review-score reveal">
+          <div class="score-num">4.9</div>
+          <div class="stars" role="img" aria-label="4.9 / 5">★★★★★</div>
+          <p data-i18n="rev.based">Based on 24 Google reviews</p>
+          <a class="btn btn-gold btn-block" href="https://maps.app.goo.gl/fGAP67XN2ySis7fN7" target="_blank" rel="noopener" data-i18n="rev.all">Read all reviews on Google</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRICING ================= -->
+  <section class="section pricing" id="pricing">
+    <div class="wrap">
+      <div class="section-head center">
+        <div class="eyebrow both reveal" data-i18n="pricing.eyebrow">Prices &amp; Membership</div>
+        <h2 class="reveal d1" data-i18n="pricing.title">Play your way.</h2>
+        <p class="lead reveal d2" data-i18n="pricing.lead">Hire a court by the hour, book a lesson, or join the club for priority access all year.</p>
+      </div>
+
+      <div class="price-grid">
+        <div class="price reveal">
+          <h3 data-i18n="pr1.title">Court Hire</h3>
+          <p class="sub" data-i18n="pr1.sub">Daytime 07:00 – 17:00</p>
+          <div class="amount"><span data-amount="900">₺900</span> <small data-i18n="per.hour">/ hour</small></div>
+          <ul>
+            <li data-i18n="pr1.l1">Any of six clay courts</li>
+            <li data-i18n="pr1.l2">Floodlit evenings from ₺1,100</li>
+            <li data-i18n="pr1.l3">Book online up to 14 days ahead</li>
+            <li data-i18n="pr1.l4">Free cancellation up to 24h before</li>
+          </ul>
+          <a href="booking.html" class="btn btn-ghost btn-block" data-i18n="cta.book">Book a court</a>
+        </div>
+        <div class="price featured reveal d1">
+          <span class="tag" data-i18n="pr2.tag">Most popular</span>
+          <h3 data-i18n="pr2.title">Private Lesson</h3>
+          <p class="sub" data-i18n="pr2.sub">With a certified coach, court included</p>
+          <div class="amount"><span data-amount="2000">₺2,000</span> <small data-i18n="per.hour">/ hour</small></div>
+          <ul>
+            <li data-i18n="pr2.l1">Personal plan for your level</li>
+            <li data-i18n="pr2.l2">Video analysis on request</li>
+            <li data-i18n="pr2.l3">10-lesson package — save 15%</li>
+            <li data-i18n="pr2.l4">First trial lesson free</li>
+          </ul>
+          <a href="#contact" class="btn btn-navy btn-block" data-enquire="trial" data-i18n="pr2.cta">Book a trial</a>
+        </div>
+        <div class="price reveal d2">
+          <h3 data-i18n="pr3.title">Club Membership</h3>
+          <p class="sub" data-i18n="pr3.sub">For regular players</p>
+          <div class="amount"><span data-amount="6500">₺6,500</span> <small data-i18n="per.month">/ month</small></div>
+          <ul>
+            <li data-i18n="pr3.l1">Unlimited daytime court play</li>
+            <li data-i18n="pr3.l2">48-hour priority booking</li>
+            <li data-i18n="pr3.l3">20% off lessons and camps</li>
+            <li data-i18n="pr3.l4">Member evenings &amp; club tournaments</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost btn-block" data-enquire="membership" data-i18n="pr3.cta">Enquire</a>
+        </div>
+      </div>
+      <p class="price-note" data-i18n="pricing.note">Prices are indicative and shown in Turkish lira.</p>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="section faq" id="faq">
+    <div class="wrap faq-grid">
+      <div>
+        <div class="eyebrow reveal" data-i18n="faq.eyebrow">Good to know</div>
+        <h2 class="reveal d1" data-i18n="faq.title">Questions, answered.</h2>
+      </div>
+      <div class="reveal d1">
+        <details open>
+          <summary data-i18n="q1">Do I need to be a member to play?</summary>
+          <p data-i18n="a1">No. Courts and lessons are open to everyone. Members simply enjoy priority booking, unlimited daytime play and discounts on coaching.</p>
+        </details>
+        <details>
+          <summary data-i18n="q2">I'm visiting Antalya — can I play for a few days?</summary>
+          <p data-i18n="a2">Of course. Book a court online, take a lesson, or join a three- or five-day tennis holiday camp. Rackets and balls are available to rent.</p>
+        </details>
+        <details>
+          <summary data-i18n="q3">Which languages do your coaches speak?</summary>
+          <p data-i18n="a3">Our team coaches in Turkish, English and Russian.</p>
+        </details>
+        <details>
+          <summary data-i18n="q4">What should I wear on clay courts?</summary>
+          <p data-i18n="a4">Tennis shoes with a clay or all-court (herringbone) sole. Running shoes and dark-soled trainers damage the surface, so please avoid them.</p>
+        </details>
+        <details>
+          <summary data-i18n="q5">From what age can children start?</summary>
+          <p data-i18n="a5">From four years old. Our Junior Academy uses softer red, orange and green balls and smaller courts so children rally from the very first lesson.</p>
+        </details>
+        <details>
+          <summary data-i18n="q6">How do cancellations work?</summary>
+          <p data-i18n="a6">Court bookings and lessons can be cancelled free of charge up to 24 hours before the start time.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="section contact" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <div class="eyebrow reveal" data-i18n="contact.eyebrow">Visit &amp; Contact</div>
+        <h2 class="reveal d1" data-i18n="contact.title">See you on court.</h2>
+        <ul class="contact-list reveal d2">
+          <li><span data-i18n="contact.address">Address</span><div>Meltem, 100. Yıl Blv. No: 12<br>07030 Muratpaşa / Antalya<br><a class="link-arrow" style="margin-top:10px" href="https://maps.app.goo.gl/fGAP67XN2ySis7fN7" target="_blank" rel="noopener" data-i18n="contact.directions">Get directions</a></div></li>
+          <li><span data-i18n="contact.hours">Hours</span><div data-i18n="contact.hoursVal">Every day, 07:00 – 00:00</div></li>
+          <li><span data-i18n="contact.phone">Phone</span><div><a href="tel:+905072412021">+90 507 241 20 21</a></div></li>
+          <li><span>WhatsApp</span><div><a href="https://wa.me/905072412021" target="_blank" rel="noopener" data-i18n="contact.wa">Message on WhatsApp</a></div></li>
+          <li><span>Instagram</span><div><a href="https://www.instagram.com/nashiratenisakademi/" target="_blank" rel="noopener">@nashiratenisakademi</a></div></li>
+        </ul>
+        <div class="hero-actions reveal d3">
+          <a href="#contact" class="btn btn-navy" data-enquire="trial" data-i18n="enq.open">Send an enquiry</a>
+          <a href="booking.html" class="btn btn-line" data-i18n="cta.book">Book a court</a>
+        </div>
+      </div>
+      <div class="map-frame reveal d1">
+        <iframe title="Map: Nashira Spor Kulübü Tenis Akademisi" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=Nashira%20Spor%20Kul%C3%BCb%C3%BC%20Tenis%20Akademisi%2C%20100.%20Y%C4%B1l%20Blv%2012%2C%20Antalya&amp;ll=36.8875694,30.6707861&amp;z=16&amp;output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="#top" class="brand">
+          <svg class="brand-mark"><use href="#emblem"/></svg>
+          <span class="brand-text"><span class="brand-name">NASHIRA</span><span class="brand-sub">Spor Kulübü · Antalya</span></span>
+        </a>
+        <p data-i18n="footer.about">Tennis academy and club with six red clay courts in Antalya.</p>
+      </div>
+      <div>
+        <h5 data-i18n="footer.explore">Explore</h5>
+        <ul>
+          <li><a href="#academy" data-i18n="nav.academy">Academy</a></li>
+          <li><a href="#facilities" data-i18n="nav.facilities">Facilities</a></li>
+          <li><a href="#team" data-i18n="nav.team">Team</a></li>
+          <li><a href="#pricing" data-i18n="nav.prices">Prices</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 data-i18n="footer.play">Play</h5>
+        <ul>
+          <li><a href="booking.html" data-i18n="cta.book">Book a court</a></li>
+          <li><a href="#programs" data-i18n="p1.title">Private lessons</a></li>
+          <li><a href="#programs" data-i18n="p4.title">Junior academy</a></li>
+          <li><a href="#programs" data-i18n="p6.title">Tennis holidays</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 data-i18n="footer.visit">Visit</h5>
+        <ul>
+          <li>Meltem, Muratpaşa / Antalya</li>
+          <li data-i18n="footer.daily">Daily 07:00 – 00:00</li>
+          <li><a href="#contact" data-i18n="footer.contactUs">Contact us</a></li>
+          <li><a href="https://www.instagram.com/nashiratenisakademi/" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span class="year"></span> Nashira Spor Kulübü. <span data-i18n="footer.rights">All rights reserved.</span></span>
+      <span data-i18n="footer.country">Antalya · Türkiye</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/905072412021" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2a9.7 9.7 0 0 0-8.4 14.6L2.3 21.7l5-1.3A9.7 9.7 0 1 0 12 2.2zm0 17.7a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 19.9zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.7 3 .6a2.5 2.5 0 0 0 1.7-1.2 2 2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3z"/></svg>
+</a>
+
+<!-- Enquiry form (opens from "Free trial lesson", "Book a trial", "Enquire", "Send an enquiry") -->
+<div class="modal" id="enquiry" role="dialog" aria-modal="true" aria-labelledby="enqTitle">
+  <div class="modal-card enquiry-card">
+    <button type="button" class="modal-x" id="enqClose" aria-label="Close">&times;</button>
+
+    <form id="enqForm" novalidate>
+      <div class="eyebrow" data-i18n="enq.eyebrow">Enquiry</div>
+      <h3 id="enqTitle" data-i18n="enq.title">Tell us about your <em>game</em>.</h3>
+      <p class="enq-lead" data-i18n="enq.lead">We'll get back to you on WhatsApp to arrange a time.</p>
+
+      <div class="field">
+        <label for="eInterest" data-i18n="enq.interest">I'm interested in</label>
+        <select id="eInterest">
+          <option value="trial" data-i18n="hero.trial">Free trial lesson</option>
+          <option value="private" data-i18n="p1.title">Private Lessons</option>
+          <option value="semi" data-i18n="p2.title">Semi-Private</option>
+          <option value="group" data-i18n="p3.title">Adult Group Clinics</option>
+          <option value="junior" data-i18n="p4.title">Junior Academy</option>
+          <option value="performance" data-i18n="p5.title">Performance Squad</option>
+          <option value="holiday" data-i18n="p6.title">Tennis Holidays</option>
+          <option value="membership" data-i18n="pr3.title">Club Membership</option>
+        </select>
+      </div>
+
+      <div class="enq-row">
+        <fieldset class="field">
+          <legend data-i18n="enq.for">Who is it for?</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="eFor" value="adult" checked><span data-i18n="enq.adult">Myself</span></label>
+            <label class="chip"><input type="radio" name="eFor" value="child"><span data-i18n="enq.child">My child</span></label>
+          </div>
+        </fieldset>
+        <div class="field" id="eAgeField" hidden>
+          <label for="eAge" data-i18n="enq.age">Child's age</label>
+          <input id="eAge" type="number" min="3" max="18" inputmode="numeric">
+        </div>
+      </div>
+
+      <fieldset class="field">
+        <legend data-i18n="enq.level">Level</legend>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="eLevel" value="new" checked><span data-i18n="lvl.new">New to tennis</span></label>
+          <label class="chip"><input type="radio" name="eLevel" value="some"><span data-i18n="lvl.some">Some experience</span></label>
+          <label class="chip"><input type="radio" name="eLevel" value="adv"><span data-i18n="lvl.adv">Advanced</span></label>
+          <label class="chip"><input type="radio" name="eLevel" value="comp"><span data-i18n="lvl.comp">Competitive</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="field">
+        <legend data-i18n="enq.when">Best times</legend>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="eWhen" value="morning"><span data-i18n="when.morning">Weekday mornings</span></label>
+          <label class="chip"><input type="checkbox" name="eWhen" value="evening"><span data-i18n="when.evening">Weekday evenings</span></label>
+          <label class="chip"><input type="checkbox" name="eWhen" value="weekend"><span data-i18n="when.weekend">Weekends</span></label>
+        </div>
+      </fieldset>
+
+      <div class="enq-row">
+        <div class="field"><label for="eName" data-i18n="f.name">Full name</label><input id="eName" autocomplete="name"></div>
+        <div class="field"><label for="ePhone" data-i18n="f.phone">Phone / WhatsApp</label><input id="ePhone" type="tel" autocomplete="tel" placeholder="+90"></div>
+      </div>
+
+      <div class="field">
+        <label for="eMsg" data-i18n="enq.msg">Anything else? (optional)</label>
+        <textarea id="eMsg" rows="3"></textarea>
+      </div>
+
+      <label class="check consent" id="eConsentWrap"><input type="checkbox" id="eConsent"><span data-i18n="enq.consent">I agree that Nashira may contact me about this enquiry. My details are used only to reply.</span><em></em></label>
+
+      <button class="btn btn-navy btn-block" type="submit">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:18px;height:18px"><path d="M12 2.2a9.7 9.7 0 0 0-8.4 14.6L2.3 21.7l5-1.3A9.7 9.7 0 1 0 12 2.2zm4.4 11.7c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.7 3 .6a2.5 2.5 0 0 0 1.7-1.2 2 2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3z"/></svg>
+        <span data-i18n="enq.send">Send via WhatsApp</span>
+      </button>
+      <p class="fine center"><span data-i18n="enq.or">or call us</span> <a href="tel:+905072412021">+90 507 241 20 21</a></p>
+    </form>
+
+    <div class="enq-done" id="enqDone" hidden>
+      <svg class="mark"><use href="#emblem"/></svg>
+      <h3 id="enqDoneTitle"></h3>
+      <p data-i18n="enq.doneText">WhatsApp has opened with your message — just press send. We'll be in touch soon.</p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-navy" id="enqDoneClose" data-i18n="m.done">Done</button>
+        <a class="btn btn-line" id="enqRetry" href="#" target="_blank" rel="noopener" data-i18n="enq.retry">Open WhatsApp again</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mobile-cta" id="mobileCta">
+  <a href="booking.html" class="btn btn-gold" data-i18n="cta.book">Book a court</a>
+  <a href="https://wa.me/905072412021" class="mc-wa" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2a9.7 9.7 0 0 0-8.4 14.6L2.3 21.7l5-1.3A9.7 9.7 0 1 0 12 2.2zm0 17.7a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 19.9zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.7 3 .6a2.5 2.5 0 0 0 1.7-1.2 2 2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3z"/></svg>
+  </a>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

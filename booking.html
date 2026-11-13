@@ -84,13 +84,19 @@
     </div>
   </section>
 
-  <section class="booking">
+  <section class="booking" data-type="court">
     <div class="wrap">
       <div class="booking-layout">
 
         <!-- Calendar -->
         <div>
           <div class="panel">
+            <div class="type-tabs" id="typeTabs" role="group" aria-label="Booking type">
+              <button type="button" data-type="court" data-i18n="bt.court">Court hire</button>
+              <button type="button" data-type="lesson" data-i18n="bt.lesson">Private lesson</button>
+              <button type="button" data-type="trial" data-i18n="bt.trial">Free trial</button>
+            </div>
+            <p class="type-note" id="typeNote"></p>
             <div class="panel-head">
               <div><span class="step" data-i18n="bk.step1">Step 1 · Choose a day</span><h3 id="dayTitle"></h3></div>
             </div>
@@ -134,8 +140,7 @@
             <p class="sel-empty" id="selEmpty" data-i18n="bk.empty">No time selected yet — tap an available slot.</p>
             <ul class="sel-list" id="selList"></ul>
 
-            <div class="extras" id="extras">
-              <label class="check"><input type="checkbox" id="xCoach"><span><span data-i18n="x.coach">Add a coach</span><small data-i18n="x.coachSub">Private lesson on your court</small></span><em id="xCoachPrice"></em></label>
+            <div class="extras for-paid" id="extras">
               <label class="check"><input type="checkbox" id="xRackets"><span><span data-i18n="x.rackets">Racket rental</span><small data-i18n="x.racketsSub">Two premium rackets</small></span><em id="xRacketsPrice"></em></label>
               <label class="check"><input type="checkbox" id="xBalls"><span><span data-i18n="x.balls">New balls</span><small data-i18n="x.ballsSub">Tube of four</small></span><em id="xBallsPrice"></em></label>
             </div>
@@ -146,13 +151,35 @@
               <div class="field"><label for="fName" data-i18n="f.name">Full name</label><input id="fName" autocomplete="name" required></div>
               <div class="form-row">
                 <div class="field"><label for="fPhone" data-i18n="f.phone">Phone / WhatsApp</label><input id="fPhone" type="tel" autocomplete="tel" placeholder="+90" required></div>
-                <div class="field"><label for="fPlayers" data-i18n="f.players">Players</label>
+                <div class="field for-court"><label for="fPlayers" data-i18n="f.players">Players</label>
                   <select id="fPlayers"><option data-i18n="f.singles">Singles · 2</option><option data-i18n="f.doubles">Doubles · 4</option></select>
+                </div>
+                <div class="field for-coached"><label for="fFor" data-i18n="enq.for">Who is it for?</label>
+                  <select id="fFor"><option value="adult" data-i18n="enq.adult">Myself</option><option value="child" data-i18n="enq.child">My child</option></select>
+                </div>
+              </div>
+              <div class="form-row for-coached">
+                <div class="field for-lesson"><label for="fCoach" data-i18n="f.coach">Coach</label>
+                  <select id="fCoach">
+                    <option value="any" data-i18n="f.anyCoach">Any coach</option>
+                    <option data-i18n="c1.name">Orhan</option>
+                    <option data-i18n="c2.name">Dilek</option>
+                    <option data-i18n="c3.name">Musa</option>
+                    <option data-i18n="c4.name">Arda</option>
+                  </select>
+                </div>
+                <div class="field"><label for="fLevel" data-i18n="enq.level">Level</label>
+                  <select id="fLevel">
+                    <option data-i18n="lvl.new">New to tennis</option>
+                    <option data-i18n="lvl.some">Some experience</option>
+                    <option data-i18n="lvl.adv">Advanced</option>
+                    <option data-i18n="lvl.comp">Competitive</option>
+                  </select>
                 </div>
               </div>
               <div class="field"><label for="fEmail" data-i18n="f.email">Email (optional)</label><input id="fEmail" type="email" autocomplete="email"></div>
               <button class="btn btn-navy btn-block" id="confirmBtn" type="submit" disabled>Select a time slot</button>
-              <p class="fine" data-i18n="bk.fine">Your request opens in WhatsApp — press send and we'll confirm your court there. You pay at the club reception.</p>
+              <p class="fine" data-i18n="bk.fine">Your request opens in WhatsApp — press send and we'll confirm it there. You pay at the club reception.</p>
               <p class="fine help-line"><span data-i18n="bk.help">Questions about your booking?</span> <a href="https://wa.me/905072412021" target="_blank" rel="noopener" data-i18n="bk.helpWa">Message us on WhatsApp</a> <span data-i18n="enq.or">or call us</span> <a href="tel:+905072412021">+90 507 241 20 21</a></p>
             </form>
           </div>
@@ -161,7 +188,7 @@
           <div class="info-cards">
             <div><h4 data-i18n="i1.t">Free cancellation</h4><p data-i18n="i1.p">Cancel up to 24 hours before at no charge — just message us on WhatsApp with your booking reference.</p></div>
             <div><h4 data-i18n="i2.t">Clay-court shoes</h4><p data-i18n="i2.p">Please wear tennis shoes with a clay or all-court sole.</p></div>
-            <div><h4 data-i18n="i3.t">Want a coach?</h4><p data-i18n="i3.p">Add a coach to any booking and turn it into a private lesson.</p></div>
+            <div><h4 data-i18n="i3.t">Want a coach?</h4><p data-i18n="i3.p">Choose “Private lesson” at the top of the calendar to book a coach with your court.</p></div>
           </div>
 
 
@@ -184,7 +211,7 @@
   <div class="modal-card">
     <svg class="mark"><use href="#emblem"/></svg>
     <h3 id="mTitle"></h3>
-    <p data-i18n="m.confirmed">WhatsApp has opened with your booking request — press send, and we'll confirm your court there.</p>
+    <p data-i18n="m.confirmed">WhatsApp has opened with your request — press send, and we'll confirm it there.</p>
     <div class="modal-ref" id="mRef"></div>
     <ul id="mList"></ul>
     <p class="fine" data-i18n="m.cancel">To change or cancel, message us with this reference — free up to 24 hours before.</p>

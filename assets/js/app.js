@@ -439,6 +439,32 @@
     var pDate = params.get("date"), pCourt = +params.get("court"), pHour = +params.get("hour");
     if (pDate) days.forEach(function (d, i) { if (dateKey(d) === pDate) dayIdx = i; });
 
+    /* booking type: court hire, private lesson (court + coach) or free trial lesson (one slot, no charge) */
+    var TYPES = ["court", "lesson", "trial"];
+    var bookType = TYPES.indexOf(params.get("type")) > -1 ? params.get("type") : "court";
+    var bookingSection = $(".booking"), typeTabs = $("#typeTabs");
+    function slotPrice(h) {
+      if (bookType === "trial") return 0;
+      return priceFor(h) + (bookType === "lesson" ? CONFIG.coachPerHour : 0);
+    }
+    function priceLabel(h) { return bookType === "trial" ? t("freeLabel") : money(slotPrice(h)); }
+    function totalLabel(sum) { return bookType === "trial" && !sum ? t("freeLabel") : money(sum); }
+    function itemTitle(s) {
+      var head = bookType === "lesson" ? t("lessonShort") + " · " : bookType === "trial" ? t("trialShort") + " · " : "";
+      return head + t("court") + " " + s.court + " · " + hh(s.hour) + "–" + hh(s.hour + 1);
+    }
+    function renderType() {
+      if (bookingSection) bookingSection.setAttribute("data-type", bookType);
+      if (typeTabs) $$("button", typeTabs).forEach(function (b) {
+        var on = b.getAttribute("data-type") === bookType;
+        b.classList.toggle("on", on);
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+      var note = $("#typeNote");
+      if (note) note.textContent = bookType === "lesson" ? t("typeNoteLesson", money(CONFIG.priceDay + CONFIG.coachPerHour))
+        : bookType === "trial" ? t("typeNoteTrial") : t("typeNoteCourt");
+    }
+
     var strip = $("#dateStrip");
     function renderDates() {
       strip.innerHTML = days.map(function (d, i) {
@@ -473,10 +499,10 @@
           total++;
           if (st === "free") freeCount++;
           var label = t("court") + " " + c2 + ", " + hh(h) + " – " +
-            (st === "free" ? t("available") + ", " + money(priceFor(h)) : st === "mine" ? t("yourBooking") : t("unavailable"));
+            (st === "free" ? t("available") + ", " + priceLabel(h) : st === "mine" ? t("yourBooking") : t("unavailable"));
           html += '<button class="slot ' + st + (isSel ? " sel" : "") + '" data-c="' + c2 + '" data-h="' + h + '"' +
             (st !== "free" ? " disabled" : "") + ' aria-pressed="' + isSel + '" aria-label="' + label + '">' +
-            (st === "free" ? '<span class="p">' + (isSel ? "✓ " : "") + money(priceFor(h)) + "</span>" : st === "mine" ? t("yours") : "") +
+            (st === "free" ? '<span class="p">' + (isSel ? "✓ " : "") + priceLabel(h) + "</span>" : st === "mine" ? t("yours") : "") +
             "</button>";
         }
       }
@@ -518,7 +544,7 @@
         html += '<button class="slot ' + st + (isSel ? " sel" : "") + '" data-c="' + listCourt + '" data-h="' + h2 + '"' +
           (st !== "free" ? " disabled" : "") + ' aria-pressed="' + isSel + '">' +
           "<b>" + (h2 >= CONFIG.peakFrom ? moon : "") + hh(h2) + "</b>" +
-          '<span class="p">' + (st === "free" ? (isSel ? "✓ " : "") + money(priceFor(h2)) : st === "mine" ? t("yours") : t("taken")) + "</span></button>";
+          '<span class="p">' + (st === "free" ? (isSel ? "✓ " : "") + priceLabel(h2) : st === "mine" ? t("yours") : t("taken")) + "</span></button>";
       }
       slotList.innerHTML = html;
     }
@@ -542,7 +568,7 @@
         html += '<button class="slot ' + st + (isSel ? " sel" : "") + '" data-c="' + c + '" data-h="' + listHour + '"' +
           (st !== "free" ? " disabled" : "") + ' aria-pressed="' + isSel + '">' +
           "<b>" + t("court") + " " + c + "</b>" +
-          '<span class="p">' + (st === "free" ? (isSel ? "✓ " : "") + money(priceFor(listHour)) : st === "mine" ? t("yours") : t("taken")) + "</span></button>";
+          '<span class="p">' + (st === "free" ? (isSel ? "✓ " : "") + priceLabel(listHour) : st === "mine" ? t("yours") : t("taken")) + "</span></button>";
       }
       slotList.innerHTML = html;
     }
@@ -570,11 +596,34 @@
       var c = +b.getAttribute("data-c"), h = +b.getAttribute("data-h");
       var dk = dateKey(days[dayIdx]), key = dk + "|" + c + "|" + h;
       if (selected[key]) delete selected[key];
-      else selected[key] = { date: dk, court: c, hour: h };
+      else {
+        if (bookType === "trial") selected = {};
+        selected[key] = { date: dk, court: c, hour: h };
+      }
       renderGrid(); renderSummary();
     }
     grid.addEventListener("click", onSlot);
     if (slotList) slotList.addEventListener("click", onSlot);
+
+    if (typeTabs) {
+      typeTabs.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-type]");
+        if (!b || b.getAttribute("data-type") === bookType) return;
+        bookType = b.getAttribute("data-type");
+        if (bookType === "trial") {
+          var keep = selArray()[0];
+          selected = {};
+          if (keep) selected[keep.date + "|" + keep.court + "|" + keep.hour] = keep;
+          $$("#extras input").forEach(function (i) { i.checked = false; });
+        }
+        if (history.replaceState) {
+          var u = new URL(location.href);
+          if (bookType === "court") u.searchParams.delete("type"); else u.searchParams.set("type", bookType);
+          history.replaceState(null, "", u);
+        }
+        renderType(); renderGrid(); renderSummary();
+      });
+    }
 
     /* summary */
     var selList = $("#selList"), selEmpty = $("#selEmpty"), totalEl = $("#total"), confirmBtn = $("#confirmBtn");
@@ -606,9 +655,8 @@
     }
     function computeTotal(items) {
       var sum = 0;
-      items.forEach(function (s) { sum += priceFor(s.hour); });
-      if (items.length) {
-        if ($("#xCoach").checked) sum += CONFIG.coachPerHour * items.length;
+      items.forEach(function (s) { sum += slotPrice(s.hour); });
+      if (items.length && bookType !== "trial") {
         if ($("#xRackets").checked) sum += CONFIG.rackets;
         if ($("#xBalls").checked) sum += CONFIG.balls;
       }
@@ -618,20 +666,21 @@
       var items = selArray();
       selEmpty.style.display = items.length ? "none" : "block";
       selList.innerHTML = items.map(function (s) {
-        return "<li><div><b>" + t("court") + " " + s.court + " · " + hh(s.hour) + "–" + hh(s.hour + 1) + "</b><small>" +
+        return "<li><div><b>" + itemTitle(s) + "</b><small>" +
           fmtDay(parseKey(s.date), { weekday: "short", day: "numeric", month: "short" }) + (s.hour >= CONFIG.peakFrom ? " · " + t("floodlit") : "") +
-          "</small></div><span>" + money(priceFor(s.hour)) + '</span><button class="rm" data-k="' + s.date + "|" + s.court + "|" + s.hour +
+          "</small></div><span>" + priceLabel(s.hour) + '</span><button class="rm" data-k="' + s.date + "|" + s.court + "|" + s.hour +
           '" aria-label="' + t("remove") + '">×</button></li>';
       }).join("");
-      totalEl.textContent = money(computeTotal(items));
+      totalEl.textContent = totalLabel(computeTotal(items));
       if (bookBar) {
-        $("#bbCount").textContent = t("barCount", items.length);
-        $("#bbTotal").textContent = money(computeTotal(items));
+        $("#bbCount").textContent = bookType === "trial" ? t("trialShort") : t("barCount", items.length);
+        $("#bbTotal").textContent = totalLabel(computeTotal(items));
         updateBar();
       }
       confirmBtn.disabled = !items.length;
-      confirmBtn.textContent = items.length ? t("confirmN", items.length) : t("selectSlot");
-      $("#xCoachPrice").textContent = "+" + money(CONFIG.coachPerHour) + "/h";
+      confirmBtn.textContent = !items.length ? t("selectSlot")
+        : bookType === "lesson" ? t("lessonN", items.length)
+        : bookType === "trial" ? t("trialBtn") : t("confirmN", items.length);
       $("#xRacketsPrice").textContent = "+" + money(CONFIG.rackets);
       $("#xBallsPrice").textContent = "+" + money(CONFIG.balls);
     }
@@ -660,20 +709,27 @@
       var totalSum = computeTotal(items);
 
       /* The request goes to the club on WhatsApp; the club confirms it there. */
-      var labelText = function (id) { return $('label[for="' + id + '"]').textContent.trim().replace(/\s*\(.*\)$/, ""); };
+      var labelText = function (id) { return $('label[for="' + id + '"]').textContent.trim().replace(/\s*\(.*\)$/, "").replace(/\?$/, ""); };
       var extras = $$("#extras input:checked").map(function (i) {
         return $("span > span", i.parentNode).textContent.trim();
       });
-      var players = $("#fPlayers");
-      var lines = [t("bookHello"), "", t("ref") + ": " + ref, ""];
+      var optText = function (id) { var sel = $("#" + id); return sel.options[sel.selectedIndex].text.trim(); };
+      var hello = bookType === "lesson" ? t("lessonHello") : bookType === "trial" ? t("trialHello") : t("bookHello");
+      var lines = [hello, "", t("ref") + ": " + ref, ""];
       items.forEach(function (s) {
         lines.push("• " + fmtDay(parseKey(s.date), { weekday: "short", day: "numeric", month: "short" }) + " · " +
-          hh(s.hour) + "–" + hh(s.hour + 1) + " · " + t("court") + " " + s.court + " · " + money(priceFor(s.hour)));
+          hh(s.hour) + "–" + hh(s.hour + 1) + " · " + t("court") + " " + s.court + (bookType === "trial" ? "" : " · " + money(slotPrice(s.hour))));
       });
       lines.push("");
-      if (extras.length) lines.push(t("extras") + ": " + extras.join(", "));
-      lines.push(labelText("fPlayers") + ": " + players.options[players.selectedIndex].text.trim());
-      lines.push(t("totalPay") + ": " + money(totalSum));
+      if (bookType === "lesson") lines.push(labelText("fCoach") + ": " + optText("fCoach"));
+      if (bookType !== "court") {
+        lines.push(labelText("fFor") + ": " + optText("fFor"));
+        lines.push(labelText("fLevel") + ": " + optText("fLevel"));
+      } else {
+        lines.push(labelText("fPlayers") + ": " + optText("fPlayers"));
+      }
+      if (extras.length && bookType !== "trial") lines.push(t("extras") + ": " + extras.join(", "));
+      if (bookType !== "trial") lines.push(t("totalPay") + ": " + money(totalSum));
       lines.push("");
       lines.push(labelText("fName") + ": " + name.value.trim());
       lines.push(labelText("fPhone") + ": " + phone.value.trim());
@@ -689,8 +745,8 @@
       $("#mTitle").textContent = t("mTitle", name.value.trim().split(" ")[0]);
       $("#mList").innerHTML = items.map(function (s) {
         return "<li><span>" + fmtDay(parseKey(s.date), { weekday: "short", day: "numeric", month: "short" }) + " · " + hh(s.hour) +
-          "</span><span>" + t("court") + " " + s.court + "</span></li>";
-      }).join("") + "<li><span><b>" + t("totalPay") + "</b></span><span><b>" + money(totalSum) + "</b></span></li>";
+          "</span><span>" + (bookType === "lesson" ? t("lessonShort") + " · " : bookType === "trial" ? t("trialShort") + " · " : "") + t("court") + " " + s.court + "</span></li>";
+      }).join("") + (bookType === "trial" ? "" : "<li><span><b>" + t("totalPay") + "</b></span><span><b>" + money(totalSum) + "</b></span></li>");
       openModal();
 
       selected = {};
@@ -712,7 +768,7 @@
       if (status(dk0, pCourt, pHour) === "free") selected[dk0 + "|" + pCourt + "|" + pHour] = { date: dk0, court: pCourt, hour: pHour };
     }
 
-    rerenders.push(function () { renderDates(); renderGrid(); renderSummary(); });
+    rerenders.push(function () { renderType(); renderDates(); renderGrid(); renderSummary(); });
 
     if (pCourt) {
       setTimeout(function () {

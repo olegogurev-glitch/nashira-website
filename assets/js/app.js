@@ -19,7 +19,11 @@
     rackets: 250,       // add-on: racket rental (per booking)
     balls: 200,         // add-on: new ball tube (per booking)
     daysAhead: 14,
-    currency: "₺"
+    currency: "₺",
+    whatsapp: "905072412021", // club WhatsApp number, digits only (booking requests + enquiries go here)
+    // Demo only: marks some slots as "booked" at random so the calendar looks realistic.
+    // Set to false before launch (all future slots then show as free) or connect a real booking system.
+    demoAvailability: true
   };
 
   var STORE_KEY = "nashira-bookings-v1";
@@ -124,6 +128,7 @@
 
   /* Demo occupancy: realistic, stable per date/court/hour */
   function isTaken(dk, court, hour) {
+    if (!CONFIG.demoAvailability) return false;
     var d = parseKey(dk), wknd = d.getDay() === 0 || d.getDay() === 6;
     var p;
     if (hour < 10) p = 0.42;
@@ -340,7 +345,7 @@
   /* ---------- Enquiry form → WhatsApp ---------- */
   var enq = $("#enquiry");
   if (enq) {
-    var WA_NUMBER = "905072412021";
+    var WA_NUMBER = CONFIG.whatsapp;
     var enqForm = $("#enqForm"), enqDone = $("#enqDone"), enqLastFocus = null;
     var ageField = $("#eAgeField");
     var syncAge = function () {
@@ -581,6 +586,30 @@
 
       var ref = "NSH-" + Math.random().toString(36).slice(2, 7).toUpperCase();
       var totalSum = computeTotal(items);
+
+      /* The request goes to the club on WhatsApp; the club confirms it there. */
+      var labelText = function (id) { return $('label[for="' + id + '"]').textContent.trim().replace(/\s*\(.*\)$/, ""); };
+      var extras = $$("#extras input:checked").map(function (i) {
+        return $("span > span", i.parentNode).textContent.trim();
+      });
+      var players = $("#fPlayers");
+      var lines = [t("bookHello"), "", t("ref") + ": " + ref, ""];
+      items.forEach(function (s) {
+        lines.push("• " + fmtDay(parseKey(s.date), { weekday: "short", day: "numeric", month: "short" }) + " · " +
+          hh(s.hour) + "–" + hh(s.hour + 1) + " · " + t("court") + " " + s.court + " · " + money(priceFor(s.hour)));
+      });
+      lines.push("");
+      if (extras.length) lines.push(t("extras") + ": " + extras.join(", "));
+      lines.push(labelText("fPlayers") + ": " + players.options[players.selectedIndex].text.trim());
+      lines.push(t("totalPay") + ": " + money(totalSum));
+      lines.push("");
+      lines.push(labelText("fName") + ": " + name.value.trim());
+      lines.push(labelText("fPhone") + ": " + phone.value.trim());
+      if (email.value.trim()) lines.push(labelText("fEmail") + ": " + email.value.trim());
+      var waUrl = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(lines.join("\n"));
+      window.open(waUrl, "_blank", "noopener");
+      $("#mRetry").href = waUrl;
+
       mine = mine.concat(items.map(function (s) { return { ref: ref, date: s.date, court: s.court, hour: s.hour }; }));
       saveMine(mine); // kept in memory for this visit even if storage is blocked
 

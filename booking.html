@@ -80,7 +80,7 @@
     <div class="wrap">
       <div class="crumbs"><a href="index.html" data-i18n="footer.home">Home</a> &nbsp;/&nbsp; <span data-i18n="bk.crumb">Court booking</span></div>
       <h1 data-i18n="bk.title">Book a <em>court</em></h1>
-      <p class="lead" data-i18n="bk.lead">Choose a day, tap the hours you'd like on any of our six clay courts, and confirm. Bookings open 14 days ahead — members 48 hours earlier.</p>
+      <p class="lead" data-i18n="bk.lead">Choose a day, tap the hours you'd like on any of our six clay courts, and send your request — we confirm every booking on WhatsApp. Bookings open 14 days ahead — members 48 hours earlier.</p>
     </div>
   </section>
 
@@ -105,7 +105,7 @@
                 <span><i class="l-free"></i><span data-i18n="lg.free">Available</span></span>
                 <span><i class="l-sel"></i><span data-i18n="lg.sel">Selected</span></span>
                 <span><i class="l-booked"></i><span data-i18n="lg.booked">Booked</span></span>
-                <span><i class="l-mine"></i><span data-i18n="lg.mine">Yours</span></span>
+                <span><i class="l-mine"></i><span data-i18n="lg.mine">Requested</span></span>
               </div>
             </div>
             <div class="court-tabs" id="courtTabs"></div>
@@ -120,7 +120,7 @@
           </div>
 
           <div class="info-cards">
-            <div><h4 data-i18n="i1.t">Free cancellation</h4><p data-i18n="i1.p">Cancel up to 24 hours before your slot at no charge.</p></div>
+            <div><h4 data-i18n="i1.t">Free cancellation</h4><p data-i18n="i1.p">Cancel up to 24 hours before at no charge — just message us on WhatsApp with your booking reference.</p></div>
             <div><h4 data-i18n="i2.t">Clay-court shoes</h4><p data-i18n="i2.p">Please wear tennis shoes with a clay or all-court sole.</p></div>
             <div><h4 data-i18n="i3.t">Want a coach?</h4><p data-i18n="i3.p">Add a coach to any booking and turn it into a private lesson.</p></div>
           </div>
@@ -129,7 +129,7 @@
         <!-- Summary -->
         <aside class="panel summary" aria-labelledby="sumTitle">
           <div class="panel-head">
-            <span class="step" data-i18n="bk.step3">Step 3 · Confirm</span>
+            <span class="step" data-i18n="bk.step3">Step 3 · Send request</span>
             <h3 id="sumTitle" data-i18n="bk.your">Your booking</h3>
           </div>
           <div class="summary-body">
@@ -154,7 +154,7 @@
               </div>
               <div class="field"><label for="fEmail" data-i18n="f.email">Email (optional)</label><input id="fEmail" type="email" autocomplete="email"></div>
               <button class="btn btn-navy btn-block" id="confirmBtn" type="submit" disabled>Select a time slot</button>
-              <p class="fine" data-i18n="bk.fine">Pay at the club reception. You'll receive a confirmation by WhatsApp or SMS.</p>
+              <p class="fine" data-i18n="bk.fine">Your request opens in WhatsApp — press send and we'll confirm your court there. You pay at the club reception.</p>
               <p class="fine help-line"><span data-i18n="bk.help">Questions about your booking?</span> <a href="https://wa.me/905072412021" target="_blank" rel="noopener" data-i18n="bk.helpWa">Message us on WhatsApp</a> <span data-i18n="enq.or">or call us</span> <a href="tel:+905072412021">+90 507 241 20 21</a></p>
             </form>
           </div>
@@ -179,12 +179,13 @@
   <div class="modal-card">
     <svg class="mark"><use href="#emblem"/></svg>
     <h3 id="mTitle"></h3>
-    <p data-i18n="m.confirmed">Your booking is confirmed.</p>
+    <p data-i18n="m.confirmed">WhatsApp has opened with your booking request — press send, and we'll confirm your court there.</p>
     <div class="modal-ref" id="mRef"></div>
     <ul id="mList"></ul>
+    <p class="fine" data-i18n="m.cancel">To change or cancel, message us with this reference — free up to 24 hours before.</p>
     <div class="modal-actions">
       <button class="btn btn-navy" id="mClose" data-i18n="m.done">Done</button>
-      <a class="btn btn-line" href="index.html" data-i18n="m.home">Back to home</a>
+      <a class="btn btn-line" id="mRetry" href="https://wa.me/905072412021" target="_blank" rel="noopener" data-i18n="enq.retry">Open WhatsApp again</a>
     </div>
   </div>
 </div>

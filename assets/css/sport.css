@@ -554,3 +554,42 @@ img { max-width: 100%; }
 .booking:not([data-type="lesson"]) .for-lesson,
 .booking:not([data-type="court"]) .for-court,
 .booking[data-type="trial"] .for-paid { display: none; }
+
+
+/* ---------- Hero appears straight away (CSS only, no waiting for scripts) ---------- */
+@keyframes hero-in { from { opacity: 0; transform: translateY(14px); } }
+.hero-text > * { animation: hero-in 0.6s var(--ease) both; }
+.hero-text > :nth-child(2) { animation-delay: 0.05s; }
+.hero-text > :nth-child(3) { animation-delay: 0.1s; }
+.hero-text > :nth-child(n+4) { animation-delay: 0.15s; }
+.hero-art { animation: hero-in 0.7s var(--ease) 0.1s both; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-text > *, .hero-art { animation: none; }
+}
+
+/* ---------- Phones: shorter home page ---------- */
+@media (max-width: 620px) {
+  /* coaches and reviews become swipeable rows */
+  .team-grid, .review-grid {
+    display: grid; grid-auto-flow: column; grid-template-columns: none; grid-auto-columns: 78%;
+    gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+    margin: 0 -16px; padding: 4px 16px 14px; scroll-padding-left: 16px;
+  }
+  .team-grid::-webkit-scrollbar, .review-grid::-webkit-scrollbar { display: none; }
+  .team-grid > *, .review-grid > * { scroll-snap-align: start; }
+  .review-grid > .review-card blockquote { font-size: 17px; }
+  .coach-photo { aspect-ratio: 4 / 3; }
+  /* footer link columns side by side */
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
+  .footer-grid > div:first-child { grid-column: 1 / -1; }
+}
+
+/* Phones: tighter programme cards (price and "Enquire" share one row) */
+@media (max-width: 620px) {
+  .program { flex-flow: row wrap; align-items: center; column-gap: 12px; }
+  .program > * { flex: 1 1 100%; }
+  .program-num { font-size: 26px; margin-bottom: 6px; }
+  .program-meta { order: 3; margin-top: 14px; padding-top: 14px; }
+  .program-price { order: 4; flex: 1 1 auto; margin-top: 10px; padding-top: 0; }
+  .program-cta { order: 5; flex: 0 0 auto; margin-top: 10px; }
+}

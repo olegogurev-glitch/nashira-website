@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.classList.add("js")</script>
   <title data-i18n="meta.home">Nashira Spor Kulübü — Tennis Academy in Antalya</title>
   <meta name="description" content="Nashira Tennis Academy: six red clay courts in Antalya, near Konyaaltı beach. Private and group lessons, junior academy, holiday camps and online court booking.">
   <!-- Link previews (WhatsApp, Instagram, Facebook, Telegram). These must be full addresses.
@@ -83,17 +84,17 @@
     <div class="hero-pattern" aria-hidden="true"></div>
     <div class="wrap hero-grid">
       <div class="hero-text">
-        <div class="eyebrow reveal" data-i18n="hero.eyebrow">Tennis Academy · Antalya</div>
-        <h1 class="reveal d1" data-i18n="hero.title"><em>Best</em> tennis on red clay.</h1>
-        <p class="lead reveal d2" data-i18n="hero.lead">Six red clay courts between the Taurus mountains and the sea. Coaching and court hire for every level — from a first rally to tournament play.</p>
-        <div class="hero-actions reveal d3">
+        <div class="eyebrow" data-i18n="hero.eyebrow">Tennis Academy · Antalya</div>
+        <h1 data-i18n="hero.title"><em>Best</em> tennis on red clay.</h1>
+        <p class="lead" data-i18n="hero.lead">Six red clay courts between the Taurus mountains and the sea. Coaching and court hire for every level — from a first rally to tournament play.</p>
+        <div class="hero-actions">
           <a href="booking.html" class="btn btn-gold"><span data-i18n="cta.book">Book a court</span> <svg><use href="#arrow"/></svg></a>
           <a href="booking.html?type=trial" class="btn btn-ghost" data-i18n="hero.trial">Free trial lesson</a>
         </div>
-        <a class="hero-rating reveal d3" href="#reviews"><span class="stars" aria-hidden="true">★★★★★</span><b>4.9</b><span data-i18n="rating.google">on Google · 24 reviews</span></a>
+        <a class="hero-rating" href="#reviews"><span class="stars" aria-hidden="true">★★★★★</span><b>4.9</b><span data-i18n="rating.google">on Google · 24 reviews</span></a>
       </div>
 
-      <div class="hero-art reveal d2" aria-hidden="true">
+      <div class="hero-art" aria-hidden="true">
         <svg class="splash" viewBox="0 0 600 640" aria-hidden="true">
           <defs>
             <filter id="paint" x="-25%" y="-25%" width="150%" height="150%">
@@ -286,6 +287,43 @@
     </div>
   </section>
 
+  <!-- ================= BOOKING TEASER ================= -->
+  <section class="section book-band" id="book">
+    <div class="wrap book-band-grid">
+      <div>
+        <div class="eyebrow reveal" data-i18n="book.eyebrow">Court Booking</div>
+        <h2 class="reveal d1" data-i18n="book.title">Reserve your court in under a minute.</h2>
+        <p class="lead reveal d2" data-i18n="book.lead">Pick a day, a court and a time, and send your request in a few taps. We confirm every booking on WhatsApp — no phone calls needed.</p>
+        <a href="booking.html" class="btn btn-navy reveal d3"><span data-i18n="book.cta">Open the booking calendar</span> <svg><use href="#arrow"/></svg></a>
+      </div>
+      <div class="today-card reveal d2">
+        <header>
+          <h3 id="todayTitle"></h3>
+          <span id="todayLabel"></span>
+        </header>
+        <div id="todayRows"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= REVIEWS ================= -->
+  <section class="section reviews" id="reviews">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow reveal" data-i18n="rev.eyebrow">Reviews</div>
+        <h2 class="reveal d1" data-i18n="rev.title">What players and <em class="serif-i">parents</em> say.</h2>
+      </div>
+      <div class="review-grid" id="reviewGrid">
+        <div class="review-score reveal">
+          <div class="score-num">4.9</div>
+          <div class="stars" role="img" aria-label="4.9 / 5">★★★★★</div>
+          <p data-i18n="rev.based">Based on 24 Google reviews</p>
+          <a class="btn btn-gold btn-block" href="https://maps.app.goo.gl/fGAP67XN2ySis7fN7" target="_blank" rel="noopener" data-i18n="rev.all">Read all reviews on Google</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= STATEMENT ================= -->
   <section class="statement">
     <div class="wrap">
@@ -339,25 +377,6 @@
     </div>
   </section>
 
-  <!-- ================= BOOKING TEASER ================= -->
-  <section class="section book-band" id="book">
-    <div class="wrap book-band-grid">
-      <div>
-        <div class="eyebrow reveal" data-i18n="book.eyebrow">Court Booking</div>
-        <h2 class="reveal d1" data-i18n="book.title">Reserve your court in under a minute.</h2>
-        <p class="lead reveal d2" data-i18n="book.lead">Pick a day, a court and a time, and send your request in a few taps. We confirm every booking on WhatsApp — no phone calls needed.</p>
-        <a href="booking.html" class="btn btn-navy reveal d3"><span data-i18n="book.cta">Open the booking calendar</span> <svg><use href="#arrow"/></svg></a>
-      </div>
-      <div class="today-card reveal d2">
-        <header>
-          <h3 id="todayTitle"></h3>
-          <span id="todayLabel"></span>
-        </header>
-        <div id="todayRows"></div>
-      </div>
-    </div>
-  </section>
-
   <!-- ================= TEAM ================= -->
   <section class="section" id="team">
     <div class="wrap">
@@ -392,24 +411,6 @@
           <h3 data-i18n="c4.name">Arda</h3>
           <p data-i18n="c4.bio">Coaches adults and beginners in relaxed, enjoyable lessons with fast, visible progress.</p>
         </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= REVIEWS ================= -->
-  <section class="section reviews" id="reviews">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow reveal" data-i18n="rev.eyebrow">Reviews</div>
-        <h2 class="reveal d1" data-i18n="rev.title">What players and <em class="serif-i">parents</em> say.</h2>
-      </div>
-      <div class="review-grid" id="reviewGrid">
-        <div class="review-score reveal">
-          <div class="score-num">4.9</div>
-          <div class="stars" role="img" aria-label="4.9 / 5">★★★★★</div>
-          <p data-i18n="rev.based">Based on 24 Google reviews</p>
-          <a class="btn btn-gold btn-block" href="https://maps.app.goo.gl/fGAP67XN2ySis7fN7" target="_blank" rel="noopener" data-i18n="rev.all">Read all reviews on Google</a>
-        </div>
       </div>
     </div>
   </section>

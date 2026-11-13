@@ -449,3 +449,29 @@ img { max-width: 100%; }
   .about-photos::before { right: -12px; top: -40px; width: 190px; height: 190px; }
 }
 .section, .statement { overflow-x: clip; }
+
+/* ---------- Quick wins (Nov 2026) ---------- */
+/* Programme cards: enquiry link */
+.program-cta {
+  align-self: flex-start; display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 18px; min-height: 44px; padding: 0 2px;
+  font-family: var(--display); font-weight: 500; font-size: 15px; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--orange); border-bottom: 2px solid transparent; transition: border-color 0.2s, color 0.2s;
+}
+.program-cta svg { width: 16px; height: 16px; transition: transform 0.3s var(--ease); }
+.program-cta:hover, .program-cta:focus-visible { color: var(--orange-2); border-bottom-color: var(--orange); }
+.program-cta:hover svg { transform: translateX(4px); }
+
+/* Booking page: help line under the form */
+.fine.help-line a { color: var(--navy); border-bottom: 1px solid var(--orange); white-space: nowrap; }
+
+/* Phones: bigger tap targets for contact links and language switch */
+@media (max-width: 960px) {
+  .contact-list li div > a:not(.link-arrow) {
+    display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; margin-top: 4px;
+    border: 2px solid var(--navy); border-radius: 8px; color: var(--navy); font-weight: 500;
+  }
+  .contact-list li div > a[href^="https://wa.me"] { background: #2a7d2d; border-color: #2a7d2d; color: #fff; }
+  .contact-list .link-arrow { display: inline-flex; align-items: center; min-height: 44px; }
+  .lang button { min-width: 44px; min-height: 44px; font-size: 14px; }
+}

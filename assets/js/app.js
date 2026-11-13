@@ -66,6 +66,11 @@
       var v = lang === "en" ? null : dict[el.getAttribute("data-i18n")];
       el.innerHTML = v != null ? v : originals.get(el);
     });
+    $$("[data-i18n-content]").forEach(function (el) {
+      if (!originals.has(el)) originals.set(el, el.getAttribute("content"));
+      var v = lang === "en" ? null : dict[el.getAttribute("data-i18n-content")];
+      el.setAttribute("content", v != null ? v : originals.get(el));
+    });
     $$("[data-amount]").forEach(function (el) { el.textContent = money(+el.getAttribute("data-amount")); });
     $$("[data-setlang]").forEach(function (b) {
       var on = b.getAttribute("data-setlang") === lang;
@@ -286,7 +291,7 @@
           '<circle cx="' + (x + 7) + '" cy="' + (y + 113) + '" r="2.4" fill="#b3925a"/>' +
           '<circle cx="' + (x + 243) + '" cy="' + (y + 113) + '" r="2.4" fill="#b3925a"/>' +
           '<text x="' + x + '" y="' + (y + 142) + '" fill="#142b4f" font-family="Jost, sans-serif" font-size="11" letter-spacing="3.2">' + t("courtCaps") + " 0" + (i + 1) + "</text>" +
-          '<text x="' + (x + 250) + '" y="' + (y + 142) + '" text-anchor="end" fill="#b3925a" font-family="Cormorant Garamond, serif" font-style="italic" font-size="15">' + t("mapBook") + "</text>" +
+          '<text x="' + (x + 250) + '" y="' + (y + 142) + '" text-anchor="end" fill="#b3925a" font-family="Oswald, sans-serif" font-weight="500" font-size="13" letter-spacing="0.6">' + t("mapBook") + "</text>" +
           "</a>";
       }
       svg += '<rect x="40" y="515" width="520" height="56" fill="none" stroke="#b3925a" stroke-width="1"/>' +

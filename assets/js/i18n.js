@@ -8,6 +8,15 @@ window.NASHIRA_I18N = {
   tr: {
     "meta.home": "Nashira Spor Kulübü — Antalya'da Tenis Akademisi",
     "meta.booking": "Kort Rezervasyonu — Nashira Spor Kulübü, Antalya",
+    "meta.privacy": "Aydınlatma Metni — Nashira Spor Kulübü",
+    "meta.homeDesc": "Nashira Tenis Akademisi: Antalya'da, Konyaaltı plajına yakın altı kırmızı toprak kort. Özel ve grup dersleri, çocuk akademisi, tenis tatili kampları ve online kort rezervasyonu.",
+    "meta.bookingDesc": "Nashira'da kırmızı toprak kort, özel ders ya da ücretsiz deneme dersi ayırtın — saat seçin, talebinizi WhatsApp'tan gönderin.",
+    "meta.privacyDesc": "Nashira Spor Kulübü'nün kort rezervasyonları ve başvurular aracılığıyla gönderdiğiniz kişisel verileri nasıl işlediği (KVKK aydınlatma metni).",
+    "pv.crumb": "Aydınlatma metni",
+    "pv.title": "Aydınlatma <em>metni</em>",
+    "footer.privacy": "Aydınlatma metni",
+    "f.privacyNote": "Verilerinizin nasıl kullanıldığı:",
+    "f.privacyLink": "Aydınlatma metni",
 
     "nav.academy": "Akademi",
     "nav.programs": "Programlar",
@@ -272,6 +281,15 @@ window.NASHIRA_I18N = {
   ru: {
     "meta.home": "Nashira Spor Kulübü — теннисная академия в Анталье",
     "meta.booking": "Бронирование корта — Nashira Spor Kulübü, Анталья",
+    "meta.privacy": "Политика конфиденциальности — Nashira Spor Kulübü",
+    "meta.homeDesc": "Теннисная академия Nashira: шесть кортов с красным грунтом в Анталье, рядом с пляжем Коньяалты. Индивидуальные и групповые занятия, детская академия, теннисные кемпы и онлайн-бронирование кортов.",
+    "meta.bookingDesc": "Забронируйте грунтовый корт, индивидуальный урок или бесплатное пробное занятие в Nashira — выберите время и отправьте заявку в WhatsApp.",
+    "meta.privacyDesc": "Как Nashira Spor Kulübü обрабатывает персональные данные из заявок на бронирование и обращений (уведомление по KVKK).",
+    "pv.crumb": "Конфиденциальность",
+    "pv.title": "Политика <em>конфиденциальности</em>",
+    "footer.privacy": "Конфиденциальность",
+    "f.privacyNote": "Как мы используем ваши данные:",
+    "f.privacyLink": "Политика конфиденциальности",
 
     "nav.academy": "Академия",
     "nav.programs": "Программы",

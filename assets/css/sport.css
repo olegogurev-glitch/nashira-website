@@ -593,3 +593,28 @@ img { max-width: 100%; }
   .program-price { order: 4; flex: 1 1 auto; margin-top: 10px; padding-top: 0; }
   .program-cta { order: 5; flex: 0 0 auto; margin-top: 10px; }
 }
+
+
+/* ---------- Fonts: the serif is kept only for the NASHIRA wordmark ---------- */
+:root { --serif: "Jost", "Helvetica Neue", Arial, sans-serif; }
+.brand-name { font-family: "Cormorant Garamond", "Times New Roman", serif; }
+.sel-empty { font-style: normal; font-size: 16px; }
+
+/* ---------- Privacy notice page ---------- */
+.legal-section { padding-top: clamp(40px, 5vw, 64px); }
+.legal { max-width: 780px; }
+.legal article { display: none; }
+html[lang="tr"] .legal article[lang="tr"],
+html[lang="en"] .legal article[lang="en"],
+html[lang="ru"] .legal article[lang="ru"] { display: block; }
+.legal h2 { font-family: var(--display); font-weight: 600; font-size: clamp(20px, 2.2vw, 24px); text-transform: uppercase; letter-spacing: 0.02em; color: var(--navy); margin: 34px 0 10px; }
+.legal p, .legal li { font-size: 16.5px; line-height: 1.65; color: var(--ink); }
+.legal ul { padding-left: 20px; margin: 0 0 12px; }
+.legal li { margin-bottom: 6px; }
+.legal a { color: var(--navy); border-bottom: 1px solid var(--orange); }
+.legal-lead { font-size: 18px !important; color: var(--muted) !important; }
+.legal-date { margin-top: 36px; font-size: 14px !important; color: var(--muted) !important; }
+.draft-note { background: var(--blush); border-left: 4px solid var(--yellow); padding: 14px 18px; border-radius: 6px; font-size: 15px !important; }
+.fine.privacy-line a { color: var(--navy); border-bottom: 1px solid var(--orange); }
+.legal-hero h1 { overflow-wrap: break-word; hyphens: auto; }
+@media (max-width: 620px) { .legal-hero h1 { font-size: 34px; } }

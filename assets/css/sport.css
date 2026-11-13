@@ -483,3 +483,51 @@ img { max-width: 100%; }
 }
 .program-price small { font-size: 14px; font-weight: 500; color: var(--muted); }
 .program-price + .program-meta { margin-top: 12px; }
+
+
+/* ---------- Booking page: phones & tablets (Nov 2026) ---------- */
+/* Info cards sit under the calendar on desktop, and below the form on smaller screens */
+.booking-layout > div:first-child { grid-column: 1; grid-row: 1; }
+.booking-layout > .summary { grid-column: 2; grid-row: 1 / span 2; scroll-margin-top: 92px; }
+.booking-layout > .info-cards { grid-column: 1; grid-row: 2; margin-top: 0; }
+@media (max-width: 1080px) {
+  .booking-layout > div:first-child, .booking-layout > .summary, .booking-layout > .info-cards { grid-column: auto; grid-row: auto; }
+}
+
+/* "By time / By court" switch — phones only */
+.view-toggle { display: none; }
+@media (max-width: 620px) {
+  .view-toggle {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin: 14px 18px 0; padding: 4px;
+    background: var(--cream); border: 1px solid var(--line); border-radius: 8px;
+  }
+  .view-toggle button {
+    min-height: 40px; border: 0; border-radius: 6px; background: transparent; color: var(--navy);
+    font-family: var(--display); font-weight: 500; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .view-toggle button.on { background: var(--navy); color: #fff; }
+  .court-tabs { border-top: 0; }
+  .court-tab svg { width: 10px; height: 10px; margin-right: 3px; vertical-align: -1px; color: var(--yellow); }
+}
+
+/* Sticky selection bar */
+.book-bar { display: none; }
+@media (max-width: 1080px) {
+  .book-bar {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 45;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, 0.97); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 -1px 0 var(--line), 0 -10px 30px rgba(27, 42, 92, 0.1);
+    transform: translateY(110%); transition: transform 0.35s var(--ease);
+  }
+  .book-bar.show { transform: none; }
+  .menu-open .book-bar { transform: translateY(110%); }
+  .bb-info { display: flex; flex-direction: column; line-height: 1.25; }
+  .bb-info b { font-family: var(--display); font-weight: 600; font-size: 16px; color: var(--navy); }
+  .bb-info span { font-size: 14px; color: var(--muted); }
+  .book-bar .btn { padding: 14px 20px; flex: none; }
+  .book-bar .btn svg { width: 16px; height: 16px; }
+  body.bar-on .wa-float { bottom: 92px; }
+  body.bar-on .site-footer { padding-bottom: 100px; }
+}

@@ -108,6 +108,10 @@
                 <span><i class="l-mine"></i><span data-i18n="lg.mine">Requested</span></span>
               </div>
             </div>
+            <div class="view-toggle" id="viewToggle" role="group" aria-label="View">
+              <button type="button" data-view="time" data-i18n="bk.byTime">By time</button>
+              <button type="button" data-view="court" data-i18n="bk.byCourt">By court</button>
+            </div>
             <div class="court-tabs" id="courtTabs"></div>
             <div class="slot-list" id="slotList"></div>
             <div class="slot-scroller">
@@ -117,12 +121,6 @@
               <span id="freeCount"></span>
               <span data-i18n="bk.priceNote">Prices per court, per hour · ☾ floodlit from 17:00</span>
             </div>
-          </div>
-
-          <div class="info-cards">
-            <div><h4 data-i18n="i1.t">Free cancellation</h4><p data-i18n="i1.p">Cancel up to 24 hours before at no charge — just message us on WhatsApp with your booking reference.</p></div>
-            <div><h4 data-i18n="i2.t">Clay-court shoes</h4><p data-i18n="i2.p">Please wear tennis shoes with a clay or all-court sole.</p></div>
-            <div><h4 data-i18n="i3.t">Want a coach?</h4><p data-i18n="i3.p">Add a coach to any booking and turn it into a private lesson.</p></div>
           </div>
         </div>
 
@@ -160,6 +158,13 @@
           </div>
         </aside>
 
+          <div class="info-cards">
+            <div><h4 data-i18n="i1.t">Free cancellation</h4><p data-i18n="i1.p">Cancel up to 24 hours before at no charge — just message us on WhatsApp with your booking reference.</p></div>
+            <div><h4 data-i18n="i2.t">Clay-court shoes</h4><p data-i18n="i2.p">Please wear tennis shoes with a clay or all-court sole.</p></div>
+            <div><h4 data-i18n="i3.t">Want a coach?</h4><p data-i18n="i3.p">Add a coach to any booking and turn it into a private lesson.</p></div>
+          </div>
+
+
       </div>
     </div>
   </section>
@@ -188,6 +193,11 @@
       <a class="btn btn-line" id="mRetry" href="https://wa.me/905072412021" target="_blank" rel="noopener" data-i18n="enq.retry">Open WhatsApp again</a>
     </div>
   </div>
+</div>
+
+<div class="book-bar" id="bookBar">
+  <div class="bb-info" aria-live="polite"><b id="bbCount"></b><span id="bbTotal"></span></div>
+  <button type="button" class="btn btn-gold" id="bbGo"><span data-i18n="bk.continue">Continue</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
 </div>
 
 <a href="https://wa.me/905072412021" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">

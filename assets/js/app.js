@@ -486,11 +486,24 @@
       renderList(dk);
     }
 
-    /* phones: pick a court, then a time */
-    var courtTabs = $("#courtTabs"), slotList = $("#slotList");
+    /* phones: "by time" (pick an hour, see free courts) or "by court" (pick a court, see its hours) */
+    var courtTabs = $("#courtTabs"), slotList = $("#slotList"), viewToggle = $("#viewToggle");
     var listCourt = pCourt >= 1 && pCourt <= CONFIG.courts ? pCourt : 1;
+    var listMode = pCourt ? "court" : "time";
+    var listHour = pHour >= CONFIG.openHour && pHour < CONFIG.closeHour ? pHour : null;
+    function freeCourtsAt(dk, h) {
+      var n = 0;
+      for (var c = 1; c <= CONFIG.courts; c++) if (status(dk, c, h) === "free") n++;
+      return n;
+    }
     function renderList(dk) {
       if (!slotList) return;
+      if (viewToggle) $$("button", viewToggle).forEach(function (b) {
+        var on = b.getAttribute("data-view") === listMode;
+        b.classList.toggle("on", on);
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+      if (listMode === "time") return renderByTime(dk);
       var tabs = "";
       for (var c = 1; c <= CONFIG.courts; c++) {
         var free = 0;
@@ -509,11 +522,44 @@
       }
       slotList.innerHTML = html;
     }
+    function renderByTime(dk) {
+      var hours = [];
+      for (var h = CONFIG.openHour; h < CONFIG.closeHour; h++) if (!isPast(dk, h)) hours.push(h);
+      if (listHour === null || hours.indexOf(listHour) < 0) {
+        listHour = hours.filter(function (h) { return freeCourtsAt(dk, h) > 0; })[0];
+        if (listHour == null) listHour = hours[0];
+      }
+      courtTabs.innerHTML = hours.map(function (h) {
+        return '<button class="court-tab' + (h === listHour ? " on" : "") + '" data-hour="' + h + '" aria-pressed="' + (h === listHour) + '">' +
+          (h >= CONFIG.peakFrom ? moon : "") + hh(h) + "<small>" + t("freeN", freeCourtsAt(dk, h)) + "</small></button>";
+      }).join("");
+      var on = $(".court-tab.on", courtTabs);
+      if (on) courtTabs.scrollLeft = on.offsetLeft - courtTabs.offsetLeft - 18;
+      if (listHour == null) { slotList.innerHTML = ""; return; }
+      var html = "";
+      for (var c = 1; c <= CONFIG.courts; c++) {
+        var st = status(dk, c, listHour), isSel = !!selected[dk + "|" + c + "|" + listHour];
+        html += '<button class="slot ' + st + (isSel ? " sel" : "") + '" data-c="' + c + '" data-h="' + listHour + '"' +
+          (st !== "free" ? " disabled" : "") + ' aria-pressed="' + isSel + '">' +
+          "<b>" + t("court") + " " + c + "</b>" +
+          '<span class="p">' + (st === "free" ? (isSel ? "✓ " : "") + money(priceFor(listHour)) : st === "mine" ? t("yours") : t("taken")) + "</span></button>";
+      }
+      slotList.innerHTML = html;
+    }
     if (courtTabs) {
       courtTabs.addEventListener("click", function (e) {
         var b = e.target.closest(".court-tab");
         if (!b) return;
-        listCourt = +b.getAttribute("data-court");
+        if (b.hasAttribute("data-hour")) listHour = +b.getAttribute("data-hour");
+        else listCourt = +b.getAttribute("data-court");
+        renderList(dateKey(days[dayIdx]));
+      });
+    }
+    if (viewToggle) {
+      viewToggle.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-view]");
+        if (!b || b.getAttribute("data-view") === listMode) return;
+        listMode = b.getAttribute("data-view");
         renderList(dateKey(days[dayIdx]));
       });
     }
@@ -532,6 +578,27 @@
 
     /* summary */
     var selList = $("#selList"), selEmpty = $("#selEmpty"), totalEl = $("#total"), confirmBtn = $("#confirmBtn");
+
+    /* sticky "n hours · ₺total · Continue" bar while the summary is off screen (phones/tablets) */
+    var bookBar = $("#bookBar"), summaryEl = $(".summary"), summaryInView = false;
+    function updateBar() {
+      var show = !!Object.keys(selected).length && !summaryInView;
+      bookBar.classList.toggle("show", show);
+      document.body.classList.toggle("bar-on", show);
+    }
+    if (bookBar && summaryEl) {
+      var checkSummary = function () {
+        var r = summaryEl.getBoundingClientRect();
+        var inView = r.top < window.innerHeight * 0.6 && r.bottom > 140;
+        if (inView !== summaryInView) { summaryInView = inView; updateBar(); }
+      };
+      window.addEventListener("scroll", checkSummary, { passive: true });
+      window.addEventListener("resize", checkSummary);
+      checkSummary();
+      $("#bbGo").addEventListener("click", function () {
+        summaryEl.scrollIntoView({ behavior: calm ? "auto" : "smooth", block: "start" });
+      });
+    }
     function selArray() {
       return Object.keys(selected).map(function (k) { return selected[k]; }).sort(function (a, b) {
         return a.date < b.date ? -1 : a.date > b.date ? 1 : a.hour - b.hour || a.court - b.court;
@@ -557,6 +624,11 @@
           '" aria-label="' + t("remove") + '">×</button></li>';
       }).join("");
       totalEl.textContent = money(computeTotal(items));
+      if (bookBar) {
+        $("#bbCount").textContent = t("barCount", items.length);
+        $("#bbTotal").textContent = money(computeTotal(items));
+        updateBar();
+      }
       confirmBtn.disabled = !items.length;
       confirmBtn.textContent = items.length ? t("confirmN", items.length) : t("selectSlot");
       $("#xCoachPrice").textContent = "+" + money(CONFIG.coachPerHour) + "/h";

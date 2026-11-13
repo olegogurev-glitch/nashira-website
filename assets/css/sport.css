@@ -475,3 +475,11 @@ img { max-width: 100%; }
   .contact-list .link-arrow { display: inline-flex; align-items: center; min-height: 44px; }
   .lang button { min-width: 44px; min-height: 44px; font-size: 14px; }
 }
+
+/* Programme cards: price line */
+.program-price {
+  margin-top: auto; padding-top: 18px;
+  font-family: var(--display); font-weight: 600; font-size: 20px; letter-spacing: 0.02em; color: var(--navy);
+}
+.program-price small { font-size: 14px; font-weight: 500; color: var(--muted); }
+.program-price + .program-meta { margin-top: 12px; }

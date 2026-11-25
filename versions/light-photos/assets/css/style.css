@@ -542,7 +542,7 @@ html[lang="ru"] .hero h1 { font-size: clamp(42px, 6vw, 84px); }
 /* ---------- Pricing ---------- */
 .pricing { background: var(--navy); color: var(--white); }
 .pricing .lead { color: rgba(255, 255, 255, 0.65); }
-.price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 28px); }
+.price-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(16px, 2vw, 28px); max-width: 880px; margin: 0 auto; }
 .price {
   border: 1px solid var(--line-light);
   padding: clamp(30px, 3vw, 44px);
